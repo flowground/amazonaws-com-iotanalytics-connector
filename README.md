@@ -1,11 +1,11 @@
-# ![LOGO](logo.png) AWS IoT Analytics MSP Connector
+# ![LOGO](logo.png) AWS IoT Analytics **flow**ground Connector
 
 ## Description
 
-A generated MSP connector for the AWS IoT Analytics API (version 2017-11-27).
+A generated **flow**ground connector for the AWS IoT Analytics API (version 2017-11-27).
 
 Generated from: https://api.apis.guru/v2/specs/amazonaws.com/iotanalytics/2017-11-27/swagger.json<br/>
-Generated at: 2019-05-07T11:16:09+03:00
+Generated at: 2019-05-07T17:35:50+03:00
 
 ## API Description
 
@@ -461,7 +461,7 @@ Supported authorization schemes:
 
 ## License
 
-flowground :- Telekom iPaaS / amazonaws-com-iotanalytics-connector<br/>
+**flow**ground :- Telekom iPaaS / amazonaws-com-iotanalytics-connector<br/>
 Copyright © 2019, [Deutsche Telekom AG](https://www.telekom.de)<br/>
 contact: flowground@telekom.de
 
