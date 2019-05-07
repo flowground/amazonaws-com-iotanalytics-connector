@@ -1,0 +1,77 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "loggingOptions": {
+                    "description": "The new values of the AWS IoT Analytics logging options.",
+                    "properties": {
+                        "enabled": {
+                            "description": "If true, logging is enabled for AWS IoT Analytics.",
+                            "type": "boolean"
+                        },
+                        "level": {
+                            "description": "The logging level. Currently, only \"ERROR\" is supported.",
+                            "enum": [
+                                "ERROR"
+                            ],
+                            "type": "string"
+                        },
+                        "roleArn": {
+                            "description": "The ARN of the role that grants permission to AWS IoT Analytics to perform logging.",
+                            "maxLength": 2048,
+                            "minLength": 20,
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "roleArn",
+                        "level",
+                        "enabled"
+                    ],
+                    "type": "object"
+                }
+            },
+            "required": [
+                "loggingOptions"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

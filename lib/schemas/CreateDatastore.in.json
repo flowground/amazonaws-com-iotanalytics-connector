@@ -1,0 +1,99 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "datastoreName": {
+                    "description": "The name of the data store.",
+                    "maxLength": 128,
+                    "minLength": 1,
+                    "pattern": "^[a-zA-Z0-9_]+$",
+                    "type": "string"
+                },
+                "retentionPeriod": {
+                    "description": "How long, in days, message data is kept for the data store.",
+                    "properties": {
+                        "numberOfDays": {
+                            "description": "The number of days that message data is kept. The \"unlimited\" parameter must be false.",
+                            "minimum": 1,
+                            "type": "integer"
+                        },
+                        "unlimited": {
+                            "description": "If true, message data is kept indefinitely.",
+                            "type": "boolean"
+                        }
+                    },
+                    "type": "object"
+                },
+                "tags": {
+                    "description": "Metadata which can be used to manage the data store.",
+                    "items": {
+                        "description": "A set of key/value pairs which are used to manage the resource.",
+                        "properties": {
+                            "key": {
+                                "description": "The tag's key.",
+                                "maxLength": 256,
+                                "minLength": 1,
+                                "type": "string"
+                            },
+                            "value": {
+                                "description": "The tag's value.",
+                                "maxLength": 256,
+                                "minLength": 1,
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "key",
+                            "value"
+                        ],
+                        "type": "object"
+                    },
+                    "maxItems": 50,
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "datastoreName"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

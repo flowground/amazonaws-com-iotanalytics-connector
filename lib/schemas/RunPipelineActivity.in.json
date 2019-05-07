@@ -1,0 +1,409 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "payloads": {
+                    "description": "The sample message payloads on which the pipeline activity is run.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "maxItems": 10,
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "pipelineActivity": {
+                    "description": "The pipeline activity that is run. This must not be a 'channel' activity or a 'datastore' activity because these activities are used in a pipeline only to load the original message and to store the (possibly) transformed message. If a 'lambda' activity is specified, only short-running Lambda functions (those with a timeout of less than 30 seconds or less) can be used.",
+                    "properties": {
+                        "addAttributes": {
+                            "description": "Adds other attributes based on existing attributes in the message.",
+                            "properties": {
+                                "attributes": {
+                                    "description": "<p>A list of 1-50 \"AttributeNameMapping\" objects that map an existing attribute to a new attribute.</p> <note> <p>The existing attributes remain in the message, so if you want to remove the originals, use \"RemoveAttributeActivity\".</p> </note>",
+                                    "items": {
+                                        "properties": {
+                                            "key": {
+                                                "maxLength": 256,
+                                                "minLength": 1,
+                                                "type": "string"
+                                            },
+                                            "value": {
+                                                "maxLength": 256,
+                                                "minLength": 1,
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "maxItems": 50,
+                                    "minItems": 1,
+                                    "type": "array"
+                                },
+                                "name": {
+                                    "description": "The name of the 'addAttributes' activity.",
+                                    "maxLength": 128,
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "next": {
+                                    "description": "The next activity in the pipeline.",
+                                    "maxLength": 128,
+                                    "minLength": 1,
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "name",
+                                "attributes"
+                            ],
+                            "type": "object"
+                        },
+                        "channel": {
+                            "description": "Determines the source of the messages to be processed.",
+                            "properties": {
+                                "channelName": {
+                                    "description": "The name of the channel from which the messages are processed.",
+                                    "maxLength": 128,
+                                    "minLength": 1,
+                                    "pattern": "^[a-zA-Z0-9_]+$",
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "The name of the 'channel' activity.",
+                                    "maxLength": 128,
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "next": {
+                                    "description": "The next activity in the pipeline.",
+                                    "maxLength": 128,
+                                    "minLength": 1,
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "name",
+                                "channelName"
+                            ],
+                            "type": "object"
+                        },
+                        "datastore": {
+                            "description": "Specifies where to store the processed message data.",
+                            "properties": {
+                                "datastoreName": {
+                                    "description": "The name of the data store where processed messages are stored.",
+                                    "maxLength": 128,
+                                    "minLength": 1,
+                                    "pattern": "^[a-zA-Z0-9_]+$",
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "The name of the 'datastore' activity.",
+                                    "maxLength": 128,
+                                    "minLength": 1,
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "name",
+                                "datastoreName"
+                            ],
+                            "type": "object"
+                        },
+                        "deviceRegistryEnrich": {
+                            "description": "Adds data from the AWS IoT device registry to your message.",
+                            "properties": {
+                                "attribute": {
+                                    "description": "The name of the attribute that is added to the message.",
+                                    "maxLength": 256,
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "The name of the 'deviceRegistryEnrich' activity.",
+                                    "maxLength": 128,
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "next": {
+                                    "description": "The next activity in the pipeline.",
+                                    "maxLength": 128,
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "roleArn": {
+                                    "description": "The ARN of the role that allows access to the device's registry information.",
+                                    "maxLength": 2048,
+                                    "minLength": 20,
+                                    "type": "string"
+                                },
+                                "thingName": {
+                                    "description": "The name of the IoT device whose registry information is added to the message.",
+                                    "maxLength": 256,
+                                    "minLength": 1,
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "name",
+                                "attribute",
+                                "thingName",
+                                "roleArn"
+                            ],
+                            "type": "object"
+                        },
+                        "deviceShadowEnrich": {
+                            "description": "Adds information from the AWS IoT Device Shadows service to a message.",
+                            "properties": {
+                                "attribute": {
+                                    "description": "The name of the attribute that is added to the message.",
+                                    "maxLength": 256,
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "The name of the 'deviceShadowEnrich' activity.",
+                                    "maxLength": 128,
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "next": {
+                                    "description": "The next activity in the pipeline.",
+                                    "maxLength": 128,
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "roleArn": {
+                                    "description": "The ARN of the role that allows access to the device's shadow.",
+                                    "maxLength": 2048,
+                                    "minLength": 20,
+                                    "type": "string"
+                                },
+                                "thingName": {
+                                    "description": "The name of the IoT device whose shadow information is added to the message.",
+                                    "maxLength": 256,
+                                    "minLength": 1,
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "name",
+                                "attribute",
+                                "thingName",
+                                "roleArn"
+                            ],
+                            "type": "object"
+                        },
+                        "filter": {
+                            "description": "Filters a message based on its attributes.",
+                            "properties": {
+                                "filter": {
+                                    "description": "An expression that looks like a SQL WHERE clause that must return a Boolean value.",
+                                    "maxLength": 256,
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "The name of the 'filter' activity.",
+                                    "maxLength": 128,
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "next": {
+                                    "description": "The next activity in the pipeline.",
+                                    "maxLength": 128,
+                                    "minLength": 1,
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "name",
+                                "filter"
+                            ],
+                            "type": "object"
+                        },
+                        "lambda": {
+                            "description": "Runs a Lambda function to modify the message.",
+                            "properties": {
+                                "batchSize": {
+                                    "description": "<p>The number of messages passed to the Lambda function for processing.</p> <p>The AWS Lambda function must be able to process all of these messages within five minutes, which is the maximum timeout duration for Lambda functions.</p>",
+                                    "maximum": 1000,
+                                    "minimum": 1,
+                                    "type": "integer"
+                                },
+                                "lambdaName": {
+                                    "description": "The name of the Lambda function that is run on the message.",
+                                    "maxLength": 64,
+                                    "minLength": 1,
+                                    "pattern": "^[a-zA-Z0-9_-]+$",
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "The name of the 'lambda' activity.",
+                                    "maxLength": 128,
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "next": {
+                                    "description": "The next activity in the pipeline.",
+                                    "maxLength": 128,
+                                    "minLength": 1,
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "name",
+                                "lambdaName",
+                                "batchSize"
+                            ],
+                            "type": "object"
+                        },
+                        "math": {
+                            "description": "Computes an arithmetic expression using the message's attributes and adds it to the message.",
+                            "properties": {
+                                "attribute": {
+                                    "description": "The name of the attribute that contains the result of the math operation.",
+                                    "maxLength": 256,
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "math": {
+                                    "description": "An expression that uses one or more existing attributes and must return an integer value.",
+                                    "maxLength": 256,
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "The name of the 'math' activity.",
+                                    "maxLength": 128,
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "next": {
+                                    "description": "The next activity in the pipeline.",
+                                    "maxLength": 128,
+                                    "minLength": 1,
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "name",
+                                "attribute",
+                                "math"
+                            ],
+                            "type": "object"
+                        },
+                        "removeAttributes": {
+                            "description": "Removes attributes from a message.",
+                            "properties": {
+                                "attributes": {
+                                    "description": "A list of 1-50 attributes to remove from the message.",
+                                    "items": {
+                                        "maxLength": 256,
+                                        "minLength": 1,
+                                        "type": "string"
+                                    },
+                                    "maxItems": 50,
+                                    "minItems": 1,
+                                    "type": "array"
+                                },
+                                "name": {
+                                    "description": "The name of the 'removeAttributes' activity.",
+                                    "maxLength": 128,
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "next": {
+                                    "description": "The next activity in the pipeline.",
+                                    "maxLength": 128,
+                                    "minLength": 1,
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "name",
+                                "attributes"
+                            ],
+                            "type": "object"
+                        },
+                        "selectAttributes": {
+                            "description": "Creates a new message using only the specified attributes from the original message. ",
+                            "properties": {
+                                "attributes": {
+                                    "description": "A list of the attributes to select from the message.",
+                                    "items": {
+                                        "maxLength": 256,
+                                        "minLength": 1,
+                                        "type": "string"
+                                    },
+                                    "maxItems": 50,
+                                    "minItems": 1,
+                                    "type": "array"
+                                },
+                                "name": {
+                                    "description": "The name of the 'selectAttributes' activity.",
+                                    "maxLength": 128,
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "next": {
+                                    "description": "The next activity in the pipeline.",
+                                    "maxLength": 128,
+                                    "minLength": 1,
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "name",
+                                "attributes"
+                            ],
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "required": [
+                "pipelineActivity",
+                "payloads"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
