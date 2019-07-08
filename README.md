@@ -5,7 +5,7 @@
 A generated **flow**ground connector for the AWS IoT Analytics API (version 2017-11-27).
 
 Generated from: https://api.apis.guru/v2/specs/amazonaws.com/iotanalytics/2017-11-27/swagger.json<br/>
-Generated at: 2019-05-07T17:35:50+03:00
+Generated at: 2019-07-08T14:13:02+03:00
 
 ## API Description
 
@@ -17,11 +17,12 @@ Supported authorization schemes:
 - API Key
 ## Actions
 
-### Retrieves a list of channels.
+### ListChannels
+> Retrieves a list of channels.<br/>
 
 #### Input Parameters
-* `maxResults` - _optional_ - Pagination limit
-* `nextToken` - _optional_ - Pagination token
+* `maxResults` - _optional_ - Pagination limit<br/>
+* `nextToken` - _optional_ - Pagination token<br/>
 * `X-Amz-Content-Sha256` - _optional_
 * `X-Amz-Date` - _optional_
 * `X-Amz-Algorithm` - _optional_
@@ -30,7 +31,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Creates a channel. A channel collects data from an MQTT topic and archives the raw, unprocessed messages before publishing the data to a pipeline.
+### CreateChannel
+> Creates a channel. A channel collects data from an MQTT topic and archives the raw, unprocessed messages before publishing the data to a pipeline.<br/>
 
 #### Input Parameters
 * `Action` - _required_
@@ -43,7 +45,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Deletes the specified channel.
+### DeleteChannel
+> Deletes the specified channel.<br/>
 
 #### Input Parameters
 * `channelName` - _required_
@@ -56,7 +59,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Retrieves information about a channel.
+### DescribeChannel
+> Retrieves information about a channel.<br/>
 
 #### Input Parameters
 * `channelName` - _required_
@@ -69,7 +73,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Updates the settings of a channel.
+### UpdateChannel
+> Updates the settings of a channel.<br/>
 
 #### Input Parameters
 * `channelName` - _required_
@@ -82,7 +87,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Retrieves a sample of messages from the specified channel ingested during the specified timeframe. Up to 10 messages can be retrieved.
+### SampleChannelData
+> Retrieves a sample of messages from the specified channel ingested during the specified timeframe. Up to 10 messages can be retrieved.<br/>
 
 #### Input Parameters
 * `channelName` - _required_
@@ -95,11 +101,12 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Retrieves information about data sets.
+### ListDatasets
+> Retrieves information about data sets.<br/>
 
 #### Input Parameters
-* `maxResults` - _optional_ - Pagination limit
-* `nextToken` - _optional_ - Pagination token
+* `maxResults` - _optional_ - Pagination limit<br/>
+* `nextToken` - _optional_ - Pagination token<br/>
 * `X-Amz-Content-Sha256` - _optional_
 * `X-Amz-Date` - _optional_
 * `X-Amz-Algorithm` - _optional_
@@ -108,7 +115,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Creates a data set. A data set stores data retrieved from a data store by applying a "queryAction" (a SQL query) or a "containerAction" (executing a containerized application). This operation creates the skeleton of a data set. The data set can be populated manually by calling "CreateDatasetContent" or automatically according to a "trigger" you specify.
+### CreateDataset
+> Creates a data set. A data set stores data retrieved from a data store by applying a "queryAction" (a SQL query) or a "containerAction" (executing a containerized application). This operation creates the skeleton of a data set. The data set can be populated manually by calling "CreateDatasetContent" or automatically according to a "trigger" you specify.<br/>
 
 #### Input Parameters
 * `Action` - _required_
@@ -121,7 +129,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### <p>Deletes the specified data set.</p> <p>You do not have to delete the content of the data set before you perform this operation.</p>
+### DeleteDataset
+<blockquote><p>Deletes the specified data set.</p> <p>You do not have to delete the content of the data set before you perform this operation.</p></blockquote>
 
 #### Input Parameters
 * `datasetName` - _required_
@@ -134,7 +143,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Retrieves information about a data set.
+### DescribeDataset
+> Retrieves information about a data set.<br/>
 
 #### Input Parameters
 * `datasetName` - _required_
@@ -147,7 +157,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Updates the settings of a data set.
+### UpdateDataset
+> Updates the settings of a data set.<br/>
 
 #### Input Parameters
 * `datasetName` - _required_
@@ -160,7 +171,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Deletes the content of the specified data set.
+### DeleteDatasetContent
+> Deletes the content of the specified data set.<br/>
 
 #### Input Parameters
 * `datasetName` - _required_
@@ -173,7 +185,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Retrieves the contents of a data set as pre-signed URIs.
+### GetDatasetContent
+> Retrieves the contents of a data set as pre-signed URIs.<br/>
 
 #### Input Parameters
 * `datasetName` - _required_
@@ -186,7 +199,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Creates the content of a data set by applying a "queryAction" (a SQL query) or a "containerAction" (executing a containerized application).
+### CreateDatasetContent
+> Creates the content of a data set by applying a "queryAction" (a SQL query) or a "containerAction" (executing a containerized application).<br/>
 
 #### Input Parameters
 * `datasetName` - _required_
@@ -199,11 +213,12 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Lists information about data set contents that have been created.
+### ListDatasetContents
+> Lists information about data set contents that have been created.<br/>
 
 #### Input Parameters
-* `maxResults` - _optional_ - Pagination limit
-* `nextToken` - _optional_ - Pagination token
+* `maxResults` - _optional_ - Pagination limit<br/>
+* `nextToken` - _optional_ - Pagination token<br/>
 * `datasetName` - _required_
 * `X-Amz-Date` - _optional_
 * `X-Amz-Algorithm` - _optional_
@@ -212,11 +227,12 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Retrieves a list of data stores.
+### ListDatastores
+> Retrieves a list of data stores.<br/>
 
 #### Input Parameters
-* `maxResults` - _optional_ - Pagination limit
-* `nextToken` - _optional_ - Pagination token
+* `maxResults` - _optional_ - Pagination limit<br/>
+* `nextToken` - _optional_ - Pagination token<br/>
 * `X-Amz-Content-Sha256` - _optional_
 * `X-Amz-Date` - _optional_
 * `X-Amz-Algorithm` - _optional_
@@ -225,7 +241,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Creates a data store, which is a repository for messages.
+### CreateDatastore
+> Creates a data store, which is a repository for messages.<br/>
 
 #### Input Parameters
 * `Action` - _required_
@@ -238,7 +255,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Deletes the specified data store.
+### DeleteDatastore
+> Deletes the specified data store.<br/>
 
 #### Input Parameters
 * `datastoreName` - _required_
@@ -251,7 +269,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Retrieves information about a data store.
+### DescribeDatastore
+> Retrieves information about a data store.<br/>
 
 #### Input Parameters
 * `datastoreName` - _required_
@@ -264,7 +283,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Updates the settings of a data store.
+### UpdateDatastore
+> Updates the settings of a data store.<br/>
 
 #### Input Parameters
 * `datastoreName` - _required_
@@ -277,7 +297,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Retrieves the current settings of the AWS IoT Analytics logging options.
+### DescribeLoggingOptions
+> Retrieves the current settings of the AWS IoT Analytics logging options.<br/>
 
 #### Input Parameters
 * `Action` - _required_
@@ -290,7 +311,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### <p>Sets or updates the AWS IoT Analytics logging options.</p> <p>Note that if you update the value of any <code>loggingOptions</code> field, it takes up to one minute for the change to take effect. Also, if you change the policy attached to the role you specified in the roleArn field (for example, to correct an invalid policy) it takes up to 5 minutes for that change to take effect. </p>
+### PutLoggingOptions
+<blockquote><p>Sets or updates the AWS IoT Analytics logging options.</p> <p>Note that if you update the value of any <code>loggingOptions</code> field, it takes up to one minute for the change to take effect. Also, if you change the policy attached to the role you specified in the roleArn field (for example, to correct an invalid policy) it takes up to 5 minutes for that change to take effect. </p></blockquote>
 
 #### Input Parameters
 * `Action` - _required_
@@ -303,7 +325,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Sends messages to a channel.
+### BatchPutMessage
+> Sends messages to a channel.<br/>
 
 #### Input Parameters
 * `Action` - _required_
@@ -316,7 +339,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Simulates the results of running a pipeline activity on a message payload.
+### RunPipelineActivity
+> Simulates the results of running a pipeline activity on a message payload.<br/>
 
 #### Input Parameters
 * `Action` - _required_
@@ -329,11 +353,12 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Retrieves a list of pipelines.
+### ListPipelines
+> Retrieves a list of pipelines.<br/>
 
 #### Input Parameters
-* `maxResults` - _optional_ - Pagination limit
-* `nextToken` - _optional_ - Pagination token
+* `maxResults` - _optional_ - Pagination limit<br/>
+* `nextToken` - _optional_ - Pagination token<br/>
 * `X-Amz-Content-Sha256` - _optional_
 * `X-Amz-Date` - _optional_
 * `X-Amz-Algorithm` - _optional_
@@ -342,7 +367,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Creates a pipeline. A pipeline consumes messages from one or more channels and allows you to process the messages before storing them in a data store.
+### CreatePipeline
+> Creates a pipeline. A pipeline consumes messages from one or more channels and allows you to process the messages before storing them in a data store.<br/>
 
 #### Input Parameters
 * `Action` - _required_
@@ -355,7 +381,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Deletes the specified pipeline.
+### DeletePipeline
+> Deletes the specified pipeline.<br/>
 
 #### Input Parameters
 * `pipelineName` - _required_
@@ -368,7 +395,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Retrieves information about a pipeline.
+### DescribePipeline
+> Retrieves information about a pipeline.<br/>
 
 #### Input Parameters
 * `pipelineName` - _required_
@@ -381,7 +409,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Updates the settings of a pipeline.
+### UpdatePipeline
+> Updates the settings of a pipeline.<br/>
 
 #### Input Parameters
 * `pipelineName` - _required_
@@ -394,7 +423,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Starts the reprocessing of raw message data through the pipeline.
+### StartPipelineReprocessing
+> Starts the reprocessing of raw message data through the pipeline.<br/>
 
 #### Input Parameters
 * `pipelineName` - _required_
@@ -407,7 +437,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Cancels the reprocessing of data through the pipeline.
+### CancelPipelineReprocessing
+> Cancels the reprocessing of data through the pipeline.<br/>
 
 #### Input Parameters
 * `pipelineName` - _required_
@@ -420,7 +451,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Removes the given tags (metadata) from the resource.
+### UntagResource
+> Removes the given tags (metadata) from the resource.<br/>
 
 #### Input Parameters
 * `Action` - _required_
@@ -433,7 +465,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Lists the tags (metadata) which you have assigned to the resource.
+### ListTagsForResource
+> Lists the tags (metadata) which you have assigned to the resource.<br/>
 
 #### Input Parameters
 * `Action` - _required_
@@ -446,7 +479,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Adds to or modifies the tags of the given resource. Tags are metadata which can be used to manage a resource.
+### TagResource
+> Adds to or modifies the tags of the given resource. Tags are metadata which can be used to manage a resource.<br/>
 
 #### Input Parameters
 * `Action` - _required_

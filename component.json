@@ -1,6 +1,6 @@
 {
     "title": "AWS IoT Analytics",
-    "description": "<p>AWS IoT Analytics allows you to collect large amounts of device data, process messages, and store them. You can then query the data and run sophisticated analytics on it. AWS IoT Analytics enables advanced data exploration through integration with Jupyter Notebooks and data visualization through integration with Amazon QuickSight.</p> <p>Traditional analytics and business intelligence tools are designed to process structured data. IoT data often comes from devices that record noisy processes (such as temperature, motion, or sound). As a result the data from these devices can have significant gaps, corrupted messages, and false readings that must be cleaned up before analysis can occur. Also, IoT data is often only meaningful in the context of other data from external sources. </p> <p>AWS IoT Analytics automates the steps required to analyze data from IoT devices. AWS IoT Analytics filters, transforms, and enriches IoT data before storing it in a time-series data store for analysis. You can set up the service to collect only the data you need from your devices, apply mathematical transforms to process the data, and enrich the data with device-specific metadata such as device type and location before storing it. Then, you can analyze your data by running queries using the built-in SQL query engine, or perform more complex analytics and machine learning inference. AWS IoT Analytics includes pre-built models for common IoT use cases so you can answer questions like which devices are about to fail or which customers are at risk of abandoning their wearable devices.</p>",
+    "description": "AWS IoT Analytics allows you to collect large amounts of device data, process\nmessages, and store them. You can then query the data and run sophisticated\nanalytics on it. AWS IoT Analytics enables advanced data exploration through\nintegration with Jupyter Notebooks and data visualization through integration\nwith Amazon QuickSight.\n\nTraditional analytics and business intelligence tools are designed to process\nstructured data. IoT data often comes from devices that record noisy processes\n(such as temperature, motion, or sound). As a result the data from these devices\ncan have significant gaps, corrupted messages, and false readings that must be\ncleaned up before analysis can occur. Also, IoT data is often only meaningful in\nthe context of other data from external sources. \n\nAWS IoT Analytics automates the steps required to analyze data from IoT devices.\nAWS IoT Analytics filters, transforms, and enriches IoT data before storing it\nin a time-series data store for analysis. You can set up the service to collect\nonly the data you need from your devices, apply mathematical transforms to\nprocess the data, and enrich the data with device-specific metadata such as\ndevice type and location before storing it. Then, you can analyze your data by\nrunning queries using the built-in SQL query engine, or perform more complex\nanalytics and machine learning inference. AWS IoT Analytics includes pre-built\nmodels for common IoT use cases so you can answer questions like which devices\nare about to fail or which customers are at risk of abandoning their wearable\ndevices.",
     "docsUrl": "https://aws.amazon.com/iotanalytics/",
     "url": "https://api.apis.guru/v2/specs/amazonaws.com/iotanalytics/2017-11-27/swagger.json",
     "envVars": {},
@@ -20,7 +20,7 @@
                 "label": "Custom Server URL",
                 "viewClass": "TextFieldView"
             },
-            "hmac": {
+            "auth_hmac": {
                 "label": "Authorization (hmac)",
                 "viewClass": "TextFieldView",
                 "note": "Amazon Signature authorization v4"
@@ -38,7 +38,7 @@
     "actions": {
         "ListChannels": {
             "main": "./lib/actions/ListChannels.js",
-            "title": "Retrieves a list of channels.",
+            "title": "ListChannels",
             "description": "Retrieves a list of channels.",
             "fields": {
                 "verbose": {
@@ -55,7 +55,7 @@
         },
         "CreateChannel": {
             "main": "./lib/actions/CreateChannel.js",
-            "title": "Creates a channel. A channel collects data from an MQTT topic and archives the raw, unprocessed messages before publishing the data to a pipeline.",
+            "title": "CreateChannel",
             "description": "Creates a channel. A channel collects data from an MQTT topic and archives the raw, unprocessed messages before publishing the data to a pipeline.",
             "fields": {
                 "verbose": {
@@ -72,7 +72,7 @@
         },
         "DeleteChannel": {
             "main": "./lib/actions/DeleteChannel.js",
-            "title": "Deletes the specified channel.",
+            "title": "DeleteChannel",
             "description": "Deletes the specified channel.",
             "fields": {
                 "verbose": {
@@ -89,7 +89,7 @@
         },
         "DescribeChannel": {
             "main": "./lib/actions/DescribeChannel.js",
-            "title": "Retrieves information about a channel.",
+            "title": "DescribeChannel",
             "description": "Retrieves information about a channel.",
             "fields": {
                 "verbose": {
@@ -106,7 +106,7 @@
         },
         "UpdateChannel": {
             "main": "./lib/actions/UpdateChannel.js",
-            "title": "Updates the settings of a channel.",
+            "title": "UpdateChannel",
             "description": "Updates the settings of a channel.",
             "fields": {
                 "verbose": {
@@ -123,7 +123,7 @@
         },
         "SampleChannelData": {
             "main": "./lib/actions/SampleChannelData.js",
-            "title": "Retrieves a sample of messages from the specified channel ingested during the specified timeframe. Up to 10 messages can be retrieved.",
+            "title": "SampleChannelData",
             "description": "Retrieves a sample of messages from the specified channel ingested during the specified timeframe. Up to 10 messages can be retrieved.",
             "fields": {
                 "verbose": {
@@ -140,7 +140,7 @@
         },
         "ListDatasets": {
             "main": "./lib/actions/ListDatasets.js",
-            "title": "Retrieves information about data sets.",
+            "title": "ListDatasets",
             "description": "Retrieves information about data sets.",
             "fields": {
                 "verbose": {
@@ -157,7 +157,7 @@
         },
         "CreateDataset": {
             "main": "./lib/actions/CreateDataset.js",
-            "title": "Creates a data set. A data set stores data retrieved from a data store by applying a \"queryAction\" (a SQL query) or a \"containerAction\" (executing a containerized application). This operation creates the skeleton of a data set. The data set can be populated manually by calling \"CreateDatasetContent\" or automatically according to a \"trigger\" you specify.",
+            "title": "CreateDataset",
             "description": "Creates a data set. A data set stores data retrieved from a data store by applying a \"queryAction\" (a SQL query) or a \"containerAction\" (executing a containerized application). This operation creates the skeleton of a data set. The data set can be populated manually by calling \"CreateDatasetContent\" or automatically according to a \"trigger\" you specify.",
             "fields": {
                 "verbose": {
@@ -174,8 +174,8 @@
         },
         "DeleteDataset": {
             "main": "./lib/actions/DeleteDataset.js",
-            "title": "<p>Deletes the specified data set.</p> <p>You do not have to delete the content of the data set before you perform this operation.</p>",
-            "description": "<p>Deletes the specified data set.</p> <p>You do not have to delete the content of the data set before you perform this operation.</p>",
+            "title": "DeleteDataset",
+            "description": "Deletes the specified data set.\n\nYou do not have to delete the content of the data set before you perform this\noperation.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -191,7 +191,7 @@
         },
         "DescribeDataset": {
             "main": "./lib/actions/DescribeDataset.js",
-            "title": "Retrieves information about a data set.",
+            "title": "DescribeDataset",
             "description": "Retrieves information about a data set.",
             "fields": {
                 "verbose": {
@@ -208,7 +208,7 @@
         },
         "UpdateDataset": {
             "main": "./lib/actions/UpdateDataset.js",
-            "title": "Updates the settings of a data set.",
+            "title": "UpdateDataset",
             "description": "Updates the settings of a data set.",
             "fields": {
                 "verbose": {
@@ -225,7 +225,7 @@
         },
         "DeleteDatasetContent": {
             "main": "./lib/actions/DeleteDatasetContent.js",
-            "title": "Deletes the content of the specified data set.",
+            "title": "DeleteDatasetContent",
             "description": "Deletes the content of the specified data set.",
             "fields": {
                 "verbose": {
@@ -242,7 +242,7 @@
         },
         "GetDatasetContent": {
             "main": "./lib/actions/GetDatasetContent.js",
-            "title": "Retrieves the contents of a data set as pre-signed URIs.",
+            "title": "GetDatasetContent",
             "description": "Retrieves the contents of a data set as pre-signed URIs.",
             "fields": {
                 "verbose": {
@@ -259,7 +259,7 @@
         },
         "CreateDatasetContent": {
             "main": "./lib/actions/CreateDatasetContent.js",
-            "title": "Creates the content of a data set by applying a \"queryAction\" (a SQL query) or a \"containerAction\" (executing a containerized application).",
+            "title": "CreateDatasetContent",
             "description": "Creates the content of a data set by applying a \"queryAction\" (a SQL query) or a \"containerAction\" (executing a containerized application).",
             "fields": {
                 "verbose": {
@@ -276,7 +276,7 @@
         },
         "ListDatasetContents": {
             "main": "./lib/actions/ListDatasetContents.js",
-            "title": "Lists information about data set contents that have been created.",
+            "title": "ListDatasetContents",
             "description": "Lists information about data set contents that have been created.",
             "fields": {
                 "verbose": {
@@ -293,7 +293,7 @@
         },
         "ListDatastores": {
             "main": "./lib/actions/ListDatastores.js",
-            "title": "Retrieves a list of data stores.",
+            "title": "ListDatastores",
             "description": "Retrieves a list of data stores.",
             "fields": {
                 "verbose": {
@@ -310,7 +310,7 @@
         },
         "CreateDatastore": {
             "main": "./lib/actions/CreateDatastore.js",
-            "title": "Creates a data store, which is a repository for messages.",
+            "title": "CreateDatastore",
             "description": "Creates a data store, which is a repository for messages.",
             "fields": {
                 "verbose": {
@@ -327,7 +327,7 @@
         },
         "DeleteDatastore": {
             "main": "./lib/actions/DeleteDatastore.js",
-            "title": "Deletes the specified data store.",
+            "title": "DeleteDatastore",
             "description": "Deletes the specified data store.",
             "fields": {
                 "verbose": {
@@ -344,7 +344,7 @@
         },
         "DescribeDatastore": {
             "main": "./lib/actions/DescribeDatastore.js",
-            "title": "Retrieves information about a data store.",
+            "title": "DescribeDatastore",
             "description": "Retrieves information about a data store.",
             "fields": {
                 "verbose": {
@@ -361,7 +361,7 @@
         },
         "UpdateDatastore": {
             "main": "./lib/actions/UpdateDatastore.js",
-            "title": "Updates the settings of a data store.",
+            "title": "UpdateDatastore",
             "description": "Updates the settings of a data store.",
             "fields": {
                 "verbose": {
@@ -378,7 +378,7 @@
         },
         "DescribeLoggingOptions": {
             "main": "./lib/actions/DescribeLoggingOptions.js",
-            "title": "Retrieves the current settings of the AWS IoT Analytics logging options.",
+            "title": "DescribeLoggingOptions",
             "description": "Retrieves the current settings of the AWS IoT Analytics logging options.",
             "fields": {
                 "verbose": {
@@ -395,8 +395,8 @@
         },
         "PutLoggingOptions": {
             "main": "./lib/actions/PutLoggingOptions.js",
-            "title": "<p>Sets or updates the AWS IoT Analytics logging options.</p> <p>Note that if you update the value of any <code>loggingOptions</code> field, it takes up to one minute for the change to take effect. Also, if you change the policy attached to the role you specified in the roleArn field (for example, to correct an invalid policy) it takes up to 5 minutes for that change to take effect. </p>",
-            "description": "<p>Sets or updates the AWS IoT Analytics logging options.</p> <p>Note that if you update the value of any <code>loggingOptions</code> field, it takes up to one minute for the change to take effect. Also, if you change the policy attached to the role you specified in the roleArn field (for example, to correct an invalid policy) it takes up to 5 minutes for that change to take effect. </p>",
+            "title": "PutLoggingOptions",
+            "description": "Sets or updates the AWS IoT Analytics logging options.\n\nNote that if you update the value of any loggingOptions field, it takes up to\none minute for the change to take effect. Also, if you change the policy\nattached to the role you specified in the roleArn field (for example, to correct\nan invalid policy) it takes up to 5 minutes for that change to take effect.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -412,7 +412,7 @@
         },
         "BatchPutMessage": {
             "main": "./lib/actions/BatchPutMessage.js",
-            "title": "Sends messages to a channel.",
+            "title": "BatchPutMessage",
             "description": "Sends messages to a channel.",
             "fields": {
                 "verbose": {
@@ -429,7 +429,7 @@
         },
         "RunPipelineActivity": {
             "main": "./lib/actions/RunPipelineActivity.js",
-            "title": "Simulates the results of running a pipeline activity on a message payload.",
+            "title": "RunPipelineActivity",
             "description": "Simulates the results of running a pipeline activity on a message payload.",
             "fields": {
                 "verbose": {
@@ -446,7 +446,7 @@
         },
         "ListPipelines": {
             "main": "./lib/actions/ListPipelines.js",
-            "title": "Retrieves a list of pipelines.",
+            "title": "ListPipelines",
             "description": "Retrieves a list of pipelines.",
             "fields": {
                 "verbose": {
@@ -463,7 +463,7 @@
         },
         "CreatePipeline": {
             "main": "./lib/actions/CreatePipeline.js",
-            "title": "Creates a pipeline. A pipeline consumes messages from one or more channels and allows you to process the messages before storing them in a data store.",
+            "title": "CreatePipeline",
             "description": "Creates a pipeline. A pipeline consumes messages from one or more channels and allows you to process the messages before storing them in a data store.",
             "fields": {
                 "verbose": {
@@ -480,7 +480,7 @@
         },
         "DeletePipeline": {
             "main": "./lib/actions/DeletePipeline.js",
-            "title": "Deletes the specified pipeline.",
+            "title": "DeletePipeline",
             "description": "Deletes the specified pipeline.",
             "fields": {
                 "verbose": {
@@ -497,7 +497,7 @@
         },
         "DescribePipeline": {
             "main": "./lib/actions/DescribePipeline.js",
-            "title": "Retrieves information about a pipeline.",
+            "title": "DescribePipeline",
             "description": "Retrieves information about a pipeline.",
             "fields": {
                 "verbose": {
@@ -514,7 +514,7 @@
         },
         "UpdatePipeline": {
             "main": "./lib/actions/UpdatePipeline.js",
-            "title": "Updates the settings of a pipeline.",
+            "title": "UpdatePipeline",
             "description": "Updates the settings of a pipeline.",
             "fields": {
                 "verbose": {
@@ -531,7 +531,7 @@
         },
         "StartPipelineReprocessing": {
             "main": "./lib/actions/StartPipelineReprocessing.js",
-            "title": "Starts the reprocessing of raw message data through the pipeline.",
+            "title": "StartPipelineReprocessing",
             "description": "Starts the reprocessing of raw message data through the pipeline.",
             "fields": {
                 "verbose": {
@@ -548,7 +548,7 @@
         },
         "CancelPipelineReprocessing": {
             "main": "./lib/actions/CancelPipelineReprocessing.js",
-            "title": "Cancels the reprocessing of data through the pipeline.",
+            "title": "CancelPipelineReprocessing",
             "description": "Cancels the reprocessing of data through the pipeline.",
             "fields": {
                 "verbose": {
@@ -565,7 +565,7 @@
         },
         "UntagResource": {
             "main": "./lib/actions/UntagResource.js",
-            "title": "Removes the given tags (metadata) from the resource.",
+            "title": "UntagResource",
             "description": "Removes the given tags (metadata) from the resource.",
             "fields": {
                 "verbose": {
@@ -582,7 +582,7 @@
         },
         "ListTagsForResource": {
             "main": "./lib/actions/ListTagsForResource.js",
-            "title": "Lists the tags (metadata) which you have assigned to the resource.",
+            "title": "ListTagsForResource",
             "description": "Lists the tags (metadata) which you have assigned to the resource.",
             "fields": {
                 "verbose": {
@@ -599,7 +599,7 @@
         },
         "TagResource": {
             "main": "./lib/actions/TagResource.js",
-            "title": "Adds to or modifies the tags of the given resource. Tags are metadata which can be used to manage a resource.",
+            "title": "TagResource",
             "description": "Adds to or modifies the tags of the given resource. Tags are metadata which can be used to manage a resource.",
             "fields": {
                 "verbose": {
